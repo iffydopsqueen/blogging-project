@@ -12,9 +12,8 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.get('', (req, res) => {
-    res.send("Hello World!");
-});
+// Use routes from the 'main.js' file
+app.use('/', require('./server/routes/main'));
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
