@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    body 
+        .author
+            h1.author__heading Hi, I am Ify.
+            p.author__body DevOps Engineer and Blogger.
+
+        img.hero-image(src='/img/hero-image.webp' alt='Person looking out through window' width='981' height='528')
+
+        section.articles
+            h2.articles__heading Latest Posts
+            ul.article__ul
+                li
+                    a(href='#')
+                        span Post Title
+                        span.article__list__date Date
+            a.pagination(href='#') &lt; View Older Posts
