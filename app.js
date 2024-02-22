@@ -24,6 +24,9 @@ app.set('view engine', 'pug');
 // Use routes from the 'main.js' file
 app.use('/', require('./server/routes/main'));
 
+// Use routes from the 'admin.js' file
+app.use('/', require('./server/routes/admin'));
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
 });

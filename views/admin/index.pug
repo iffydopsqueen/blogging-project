@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+    h3 Sign In
+
+    form(action="/admin", method="POST")
+        label(for="username")
+            b Username
+        input(type="text", placeholder="Enter Username", name="username")
+        
+        label(for="password")
+            b Password
+        input(type="password", placeholder="Enter Password", name="password")
+        
+        input(type="submit", value="Login", class="btn")
+    
+    h3 Register
+
+    form(action="/register", method="POST")
+        label(for="username")
+            b Username
+        input(type="text", placeholder="Enter Username", name="username")
+
+        label(for="password")
+            b Password
+        input(type="password", placeholder="Enter Password", name="password")
+
+        input(type="submit", value="Register", class="btn")
