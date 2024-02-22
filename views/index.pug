@@ -12,12 +12,13 @@ block content
         section.articles
             h2.articles__heading Latest Posts
             ul.article__ul
-                li
-                    a(href='#')
-                        span Post Title
-                        span.article__list__date Date
-                li
-                    a(href='#')
-                        span Post Title
-                        span.article__list__date Date
-            a.pagination(href='#') &lt; View Older Posts
+                if data && data.length > 0
+                    each post in data
+                        li
+                            a(href=`/post/${post._id}`)
+                                span= post.title
+                                span.article__list__date= post.createdAt.toDateString()
+                else
+                    li No posts found
+            if nextPage !== null
+                a(href=`/?page=${nextPage}`, class="pagination") &lt; View Older Posts
