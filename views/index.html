@@ -31,6 +31,18 @@
         <a href="#" class="pagination">&lt; View Older Posts</a>
     </section>
 
+
+    <!-- Search -->
+    <div class="searchBar">
+        <div class="container">
+            <form action="/search" class="search__form" role="search" method="POST">
+                <input type="search" aria-label="Search" id="searchInput" name="searchTerm" placeholder="Search here..."/>
+            </form>
+            <div id="searchClose">Close</div>
+        </div>
+    </div>
+
+
     <div class="container">
         <!-- REMEMBER to call the "header.pug" file using "include" -->
         <header class="header">
