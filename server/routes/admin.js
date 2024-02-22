@@ -6,6 +6,8 @@ const bcrypt = require('bcrypt');   // encrypt & decrypt password
 const jwt = require('jsonwebtoken');
 
 const adminLayout = '../views/admin/layout';
+const jwtSecret = process.env.JWT_SECRET;
+
 /**
  * GET /
  * Admin - Login Page 
@@ -35,15 +37,27 @@ router.get('/admin', async (req, res) => {
 router.post('/admin', async (req, res) => {
     try {
         const { username, password } = req.body;  // get the username and password from the form
-        
-        res.render('admin/index', {
-            locals,
-            layout: adminLayout
-        });   
+
+        const user = await User.findOne({ username });
+        if (!user) {   // if the user doesn't exists
+            return res.status(401).json({ message: 'Invalid credentials' });   // Don't give the hacker any ideas that the user doesn't exist that's y we use 'invalid credentials' instead
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        const token = jwt.sign({ userId: user._id }, jwtSecret);
+        res.cookie('token', token, { httpOnly: true });
+        res.redirect('/dashboard'); 
+         
     } catch (error) {
         console.log(error);
     }
 });
+
+
 
 /**
  * POST /
