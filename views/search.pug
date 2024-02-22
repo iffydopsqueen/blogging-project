@@ -1,5 +1,18 @@
-.searchBar
-  .container
-    form.search__form(action='/search' role='search' method='POST')
-      input#searchInput(type='search' aria-label='Search' name='searchTerm' placeholder='Search here...')
-    #searchClose Close
+extends layout
+
+block content
+
+    body 
+        div.author
+            h1.author__heading Search Results
+
+        section.articles
+            ul.article__ul
+                if data && data.length > 0
+                    each post in data
+                        li
+                            a(href=`/post/${post._id}`)
+                                span= post.title
+                                span.article__list__date= post.createdAt.toDateString()
+                else
+                    li No posts found
