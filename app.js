@@ -8,6 +8,9 @@ const connectDB = require('./server/config/db');
 const app = express();
 const PORT = 3000 || process.env.PORT;
 
+// Connect to database 
+connectDB();
+
 app.use(express.static('public'));
 
 // Templating Engine
