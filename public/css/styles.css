@@ -120,13 +120,13 @@ img {
     grid-area: menu;
 }
 
-.header__button {
+.header__btn {
     display: flex;
     justify-content: end;
     grid-area: button;
 }
 
-.header__button button {
+.header__btn button {
     display: flex;
     gap: 0.3rem;
     align-items: center;
@@ -140,7 +140,7 @@ img {
     color: var(--black);
 }
 
-.header__button button:hover {
+.header__btn button:hover {
     border: 2px solid var(--black);
 }
   

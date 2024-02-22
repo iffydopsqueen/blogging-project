@@ -61,6 +61,30 @@ router.get('', async (req, res) => {
 
 /**
  * GET /
+ * Post :id
+*/
+
+router.get('/post/:id', async (req, res) => {
+    try {
+        let slug = req.params.id;
+
+        const data = await Post.findById({ _id: slug });
+
+        const locals = {
+            // Adding the title & description to the Home page 
+            title: data.title,
+            description: "The Blog created with Express, NodeJS & MongoDB"
+        }
+
+        res.render('post', { locals, data });
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+/**
+ * GET /
  * About
 */
 
