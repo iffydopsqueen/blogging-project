@@ -9,6 +9,28 @@ const adminLayout = '../views/admin/layout';
 const jwtSecret = process.env.JWT_SECRET;
 
 /**
+ * 
+ * Check Login
+*/
+
+// to avoid everyone visiting a particular page 
+const authMiddleware = (req, res, next) => {
+    const token = req.cookies.token;
+
+    if(!token) {
+        return res.status(401).json({ message: 'Unauthorized' });  // I MIGHT RENDER A PAGE (called 'unauthorized') HERE INSTEAD
+    }
+
+    try {
+        const decoded = jwt.verify(token, jwtSecret);
+        req.userId = decoded.userId;
+        next();
+    } catch (error) {
+        res.status(401).json({ message: 'Unauthorized' });
+    }
+};
+
+/**
  * GET /
  * Admin - Login Page 
 */
@@ -57,7 +79,29 @@ router.post('/admin', async (req, res) => {
     }
 });
 
+/**
+ * GET /
+ * Admin Dashboard
+*/
 
+// the 'authMiddleware' is here so everyone doesn't visit this page 
+router.get('/dashboard', authMiddleware, async (req, res) => {
+    try {
+        const locals = {
+            title: "Dashboard",
+            description: "The Blog created with Express, NodeJS & MongoDB"
+        }
+
+        const data = await Post.find();
+        res.render('admin/dashboard', {
+            locals,
+            data,
+            layout: adminLayout
+        });   
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 /**
  * POST /
