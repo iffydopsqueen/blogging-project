@@ -244,5 +244,17 @@ router.post('/register', async (req, res) => {
 });
 
 
+/**
+ * GET /
+ * Admin Logout
+*/
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    // res.json({ message: 'Logout successful.'});
+    res.redirect('/');
+  });
+
+
 // Export router else the application doesn't work
 module.exports = router;
