@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    body
+        a(href="/dashboard") &larr; Back
+        .admin__title
+            h2 Add New Post
+
+        form(action="/add-post", method="POST")
+            label(for="title")
+                b Title
+            input(type="text", placeholder="Post Title", name="title")
+
+            label(for="body")
+                b Content
+            textarea(name="body", cols="50", rows="10")
+
+            input(type="submit", value="Add", class="btn")

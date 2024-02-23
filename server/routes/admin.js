@@ -103,6 +103,58 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     }
 });
 
+
+/**
+ * GET /
+ * Admin - Create New Post
+*/
+
+// the 'authMiddleware' is here so everyone doesn't visit this page 
+router.get('/add-post', authMiddleware, async (req, res) => {
+    try {
+        const locals = {
+            title: "Add Post",
+            description: "The Blog created with Express, NodeJS & MongoDB"
+        }
+
+        const data = await Post.find();
+        res.render('admin/add-post', {
+            locals,
+            layout: adminLayout
+        });   
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+/**
+ * POST /
+ * Admin - Create New Post
+*/
+
+// the 'authMiddleware' is here so everyone doesn't visit this page 
+router.post('/add-post', authMiddleware, async (req, res) => {
+    try {
+        try {
+            const newPost = new Post ({
+                title: req.body.title,
+                body: req.body.body
+            });
+
+            await Post.create(newPost);   // insert our new post into the database 
+            res.redirect('/dashboard');
+        } catch (error) {
+            console.log(error);
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+
 /**
  * POST /
  * Admin - Register
