@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');    // lets me use the 'PUT' & 'DELETE' methods 
 const session = require('express-session');
 const cookieParser = require('cookie-parser');   // store session when we log in
 const MongoStore = require('connect-mongo');
@@ -18,6 +19,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 
 app.use(session({
     secret: 'keyboard cat',
