@@ -2,5 +2,31 @@ extends layout
 
 block content
 
+    head
+        meta(charset='utf-8')
+        meta(content='width=device-width, initial-scale=1.0' name='viewport')
+        title About Us
+        //- Favicons
+        //- <link href="assets/img/favicon.png" rel="icon">    this is for the bootstrap logo REMEMBER to remove
+        
+        //- Template Main CSS Files
+        link(href='css/bootstrap/assets/css/variables.css' rel='stylesheet')
+        link(href='css/bootstrap/assets/css/main.css' rel='stylesheet')
+
     body 
-        h1 About 
+        main#main
+                .container(data-aos='fade-up')
+                    .row
+                        .col-lg-12.text-center.mb-5
+                            h2.page-title About us
+                    .row.mb-5
+                        .d-md-flex.post-entry-2.half
+                            a.me-4.thumbnail(href='#')
+                                //- img.img-fluid(src='/img/hero-image.webp' alt='Person looking out through window' width='981' height='528')
+                                img.img-fluid(src='css/bootstrap/assets/img/about-page-landscape.jpg' alt='')
+                            .ps-md-5.mt-4.mt-md-0
+                                h3.mb-4.display-4 Company History
+                                p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!
+                                p
+                                | Fugit eaque illum blanditiis, quo exercitationem maiores autem laudantium unde excepturi dolores quasi eos vero harum ipsa quam laborum illo aut facere voluptates aliquam adipisci sapiente beatae ullam. Tempora culpa iusto illum accusantium cum hic quisquam dolor placeat officiis eligendi.

@@ -2,12 +2,23 @@ extends layout
 
 block content
 
+    head
+        meta(charset='utf-8')
+        meta(content='width=device-width, initial-scale=1.0' name='viewport')
+        title About Us
+        //- Favicons
+        //- <link href="assets/img/favicon.png" rel="icon">    this is for the bootstrap logo REMEMBER to remove
+        
+        //- Template Main CSS Files
+        link(href='css/bootstrap/assets/css/variables.css' rel='stylesheet')
+        link(href='css/bootstrap/assets/css/main.css' rel='stylesheet')
+
     body 
         .author
-            h1.author__heading Hi, I am Ify.
-            p.author__body DevOps Engineer and Blogger.
+            h1.author__heading Hi, I am Ify
+            p.author__body DevOps Engineer and Blogger
 
-        img.hero-image(src='/img/hero-image.webp' alt='Person looking out through window' width='981' height='528')
+        img.img-fluid(src='css/bootstrap/assets/img/home-page-landscape.jpg' alt='')
 
         section.articles
             h2.articles__heading Latest Posts
