@@ -203,6 +203,23 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
 
 
 /**
+ * DELETE /
+ * Admin - Delete Post
+*/
+
+// the 'authMiddleware' is here so everyone doesn't visit this page 
+router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
+    try {
+        await Post.deleteOne({ _id: req.params.id });
+
+        res.redirect('/dashboard');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+/**
  * POST /
  * Admin - Register
 */

@@ -6,7 +6,8 @@ block content
         a(href="/dashboard") &larr; Back
         .admin__title
             h2 View / Edit Post
-            
+            form(action=`/delete-post/${data._id}?_method=DELETE`, method="POST")
+                input(type="submit", value="Delete", class="btn-delete btn")
 
         form(action=`/edit-post/${data._id}?_method=PUT`, method="POST")
             label(for="title")
