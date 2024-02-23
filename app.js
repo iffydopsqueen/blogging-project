@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');   // store session when we log in
 const MongoStore = require('connect-mongo');
 
 const connectDB = require('./server/config/db');
+const { isActiveRoute } = require('./server/helpers/routeHelpers');
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
@@ -38,6 +39,9 @@ app.use(express.static('public'));
 // Templating Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+// global variable 
+app.locals.isActiveRoute = isActiveRoute;
 
 // Use routes from the 'main.js' file
 app.use('/', require('./server/routes/main'));

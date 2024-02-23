@@ -32,7 +32,8 @@ router.get('', async (req, res) => {
             locals, 
             data,
             current: page,
-            nextPage: hasNextPage ? nextPage : null
+            nextPage: hasNextPage ? nextPage : null,
+            currentRoute: '/'
         });   
     } catch (error) {
         console.log(error);
@@ -76,7 +77,11 @@ router.get('/post/:id', async (req, res) => {
             description: "The Blog created with Express, NodeJS & MongoDB"
         }
 
-        res.render('post', { locals, data });
+        res.render('post', { 
+            locals, 
+            data,
+            currentRoute: `/post/${slug}` 
+        });
 
     } catch (error) {
         console.log(error);
@@ -108,13 +113,13 @@ router.post('/search', async (req, res) => {
 
         res.render("search", {
             locals, 
-            data
+            data,
+            currentRoute: '/'
         });
     } catch (error) {
         console.log(error);
     }
 });
-
 
 
 /**
@@ -123,8 +128,9 @@ router.post('/search', async (req, res) => {
 */
 
 router.get('/about', (req, res) => {
-    // res.send("Hello World!");  --> Not NEEDED since we now use a templating engine 
-    res.render('about');
+    res.render('about', {
+        currentRoute: '/about'
+    });
 });
 
 /**
