@@ -1,0 +1,55 @@
+extends layout
+
+block content
+
+    head
+        meta(charset='utf-8')
+        meta(content='width=device-width, initial-scale=1.0' name='viewport')
+        title Contact Us
+    
+        //- Vendor CSS Files
+        link(href='css/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+        link(href='css/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css' rel='stylesheet')
+
+        //- Template Main CSS Files
+        link(href='css/bootstrap/assets/css/variables.css' rel='stylesheet')
+        link(href='css/bootstrap/assets/css/main.css' rel='stylesheet')
+
+    body 
+        main#main
+            section#contact.contact.mb-5
+                .container(data-aos='fade-up')
+                    .row
+                        .col-lg-12.text-center.mb-5
+                            h2.page-title Contact us
+                    .row.gy-4
+                        .col-md-4
+                            .info-item
+                                i.bi.bi-geo-alt
+                                h3 Address
+                                address 567 Main Street, Springfield, IL 62701 USA
+                        .col-md-4
+                            .info-item.info-item-borders
+                                i.bi.bi-phone
+                                h3 Phone Number
+                                p
+                                    a(href='tel:+15125557890') +1 (512) 555-7890
+                        .col-md-4
+                            .info-item
+                                i.bi.bi-envelope
+                                h3 Email
+                                p
+                                    a(href='mailto:support@example.com') support@example.com
+                    .form.mt-5
+                        form.php-email-form(action='forms/contact.php' method='post' role='form')
+                            .row
+                                .form-group.col-md-6
+                                    input#name.form-control(type='text' name='name' placeholder='Your Name' required='')
+                                .form-group.col-md-6
+                                    input#email.form-control(type='email' name='email' placeholder='Your Email' required='')
+                            .form-group
+                                input#subject.form-control(type='text' name='subject' placeholder='Subject' required='')
+                            .form-group
+                                textarea.form-control(name='message' rows='5' placeholder='Message' required='')
+                            .text-center
+                                button(type='submit') Send Message
