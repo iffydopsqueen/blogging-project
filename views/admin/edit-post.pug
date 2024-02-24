@@ -2,6 +2,25 @@ extends layout
 
 block content
 
+    head
+        //- jQuery CDN Link
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js")
+
+        //- Summernote CSS CDN Link
+        link(href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css", rel="stylesheet")
+        link(href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css", rel="stylesheet")
+
+        //- Summernote JS CDN Link
+        script(src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js")
+
+        script.
+            $(document).ready(function() {
+                $(".editPost-body").summernote({
+                    height: 250
+                });
+                $('.dropdown-toggle').dropdown();
+            });
+
     body
         a(href="/dashboard") &larr; Back
         .admin__title
@@ -18,7 +37,7 @@ block content
             label(for="body")
                 b Content
             //- the data.body is how the 'Content' box is prepopulated when we want to edit            
-            textarea(name="body", cols="50", rows="10")= data.body
+            textarea(name="body", cols="50", rows="10" class="editPost-body")= data.body
 
-            input(type="submit", value="Update", class="btn")
+            input(type="submit", value="Update", class="btn-update")
 
