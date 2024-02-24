@@ -24,10 +24,15 @@ body {
 
 a { color: var(--black); }
 h1 { font-size: var(--font-size-xl); }
-h2 { font-size: var(--font-size-lg); }
+
+h2 {
+    font-size: var(--font-size-lg); 
+    text-align: center;
+}
+
 h3 { 
     font-size: var(--font-size-md); 
-    text-align: center;
+    text-align: left;
 }
 
 input[type="text"],

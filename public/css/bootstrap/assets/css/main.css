@@ -31,8 +31,6 @@ a:hover {
 }
 
 h1,
-h2,
-h3,
 h4,
 h5,
 h6 {
@@ -43,10 +41,12 @@ h2 {
   text-align: center;
   font-size: var(--font-size-xl);
   margin-bottom: 20px;
+  font-family: var(--font-primary);
 }
 
 h3 {
   font-size: var(--font-size-md);
+  font-family: var(--font-primary);
 }
 
 #main {
