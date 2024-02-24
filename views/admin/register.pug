@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    
+    h3 Register
+
+    form(action="/register", method="POST")
+        label(for="email")
+            b Email
+        input(type="email", placeholder="Enter Email", name="email" required='')
+
+        label(for="username")
+            b Username
+        input(type="text", placeholder="Enter Username", name="username" required='')
+
+        label(for="password")
+            b Password
+        input(type="password", placeholder="Enter Password", name="password" required='')
+
+        input(type="submit", value="Register", class="btn-register")
+
+        p.register-page
+        | Already have an account? 
+        a(href="/admin") Sign in

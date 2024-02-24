@@ -224,6 +224,29 @@ router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
  * Admin - Register
 */
 
+// Define route for rendering the registration form
+router.get('/register', async (req, res) => {
+    try {
+        const locals = {
+            title: "Register",
+            description: "The Blog created with Express, NodeJS & MongoDB"
+        }
+
+        res.render('admin/register', {
+            locals,
+            layout: adminLayout
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
+/**
+ * POST /
+ * Admin - Register
+*/
+
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;  // get the username and password from the form
