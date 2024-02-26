@@ -4,6 +4,12 @@ block content
 
     h2 Sign In
 
+    //- Set isSignInPage to true to disable the dashboardBtn and logoutBtn buttons in the header
+    - var isSignInPage = true
+
+    //- Pass isSignInPage variable to the header template
+    include ./header.pug
+
     form(action="/admin", method="POST")
         label(for="username")
             b Username

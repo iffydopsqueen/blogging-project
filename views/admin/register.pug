@@ -4,6 +4,12 @@ block content
     
     h2 Register
 
+    //- Set isRegisterPage to true to disable the dashboardBtn and logoutBtn buttons in the header
+    - var isRegisterPage = true
+
+    //- Pass isRegisterPage variable to the header template
+    include ./header.pug
+
     form(action="/register", method="POST")
         label(for="email")
             b Email
