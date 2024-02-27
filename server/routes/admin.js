@@ -78,6 +78,7 @@ router.post('/admin', async (req, res) => {
          
     } catch (error) {
         console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
 
@@ -256,7 +257,9 @@ router.post('/register', async (req, res) => {
 
         try {
             const user = await User.create({ username, password:hashedPassword });
-            res.status(201).json({ message: 'User Created', user });    // testing purposes
+            await user.save();
+            //res.status(201).json({ message: 'User Created', user });    // testing purposes
+            res.redirect('/admin');
         } catch (error) {
             if (error.code === 11000) {
                 res.status(409).json({ message: 'User already in use' });
