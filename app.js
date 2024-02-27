@@ -7,6 +7,10 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');   // store session when we log in
 const MongoStore = require('connect-mongo');
 
+// SSL modules
+const https = require('https');
+const fs = require('fs');
+
 const connectDB = require('./server/config/db');
 const { isActiveRoute } = require('./server/helpers/routeHelpers');
 
@@ -49,6 +53,15 @@ app.use('/', require('./server/routes/main'));
 // Use routes from the 'admin.js' file
 app.use('/', require('./server/routes/admin'));
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+// Load SSL certificate and private key 
+const credentials = {
+  key: fs.readFileSync('./server/https/server.key'),
+  cert: fs.readFileSync('./server/https/server.cert'),
+};
+
+// Create the HTTPS server 
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(PORT, () => {
+    console.log(`Server running on https://localhost:${PORT}/`);
 });
