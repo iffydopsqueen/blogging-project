@@ -33,3 +33,24 @@ block content
                     li No posts found
             if nextPage !== null
                 a(href=`/?page=${nextPage}`, class="pagination") &lt; View Older Posts
+
+
+        //- If I decide to change my posts to display as cards
+        
+        //- section.articles
+        //-     h2.articles__heading Latest Posts
+        //-     .container.posts__container
+        //-         if data && data.length > 0
+        //-             each post in data
+        //-                 article.post
+        //-                     .post__thumbnail
+        //-                         img(src='css/bootstrap/assets/img/person-5.jpg' alt='')
+        //-                     .post__info
+        //-                         a(href=`/post/${post._id}`)
+        //-                             span= post.title
+        //-                             span= post.body
+        //-                             span.article__list__date= post.createdAt.toDateString()
+        //-         else
+        //-             li No posts found
+        //-     if nextPage !== null
+        //-         a(href=`/?page=${nextPage}`, class="pagination") &lt; View Older Posts
