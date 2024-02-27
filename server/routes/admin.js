@@ -78,7 +78,6 @@ router.post('/admin', async (req, res) => {
          
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: 'Internal server error' });
     }
 });
 
@@ -256,8 +255,7 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         try {
-            const user = await User.create({ username, email, password:hashedPassword });
-            await user.save();
+            const user = await User.create({ username, password:hashedPassword });
             res.status(201).json({ message: 'User Created', user });    // testing purposes
         } catch (error) {
             if (error.code === 11000) {
