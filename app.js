@@ -11,6 +11,9 @@ const MongoStore = require('connect-mongo');
 const https = require('https');
 const fs = require('fs');
 
+// Securing headers
+const helmet = require('helmet');
+
 const connectDB = require('./server/config/db');
 const { isActiveRoute } = require('./server/helpers/routeHelpers');
 
@@ -37,6 +40,9 @@ app.use(session({
     //     maxAge: new Date ( Date.now() + (3600000) ) 
     // }
 }));
+
+// Use Helmet middleware to secure headers
+app.use(helmet());
 
 app.use(express.static('public'));
 
