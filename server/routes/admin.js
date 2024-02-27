@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const User = require('../models/User');
+
+// For validation
 const bcrypt = require('bcrypt');   // encrypt & decrypt password 
 const jwt = require('jsonwebtoken');
 
@@ -76,6 +78,7 @@ router.post('/admin', async (req, res) => {
          
     } catch (error) {
         console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
 
@@ -253,7 +256,8 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         try {
-            const user = await User.create({ username, password:hashedPassword });
+            const user = await User.create({ username, email, password:hashedPassword });
+            await user.save();
             res.status(201).json({ message: 'User Created', user });    // testing purposes
         } catch (error) {
             if (error.code === 11000) {
