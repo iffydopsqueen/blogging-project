@@ -12,6 +12,8 @@ block content
             a.button(href="/add-post") + Add New
 
         ul.admin__posts
+            //- Sort lists of posts in descending order 
+            - data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             if data && data.length > 0
                 each post in data
                     li
