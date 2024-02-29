@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "app.js",
-    "dev": "nodemon app.js",
+    "dev": "npm run scss; nodemon app.js",
     "scss": "node-sass -o public/css/ public/scss/",
     "watch": "npm run watch:scss",
     "watch:scss": "onchange \"scss/*.scss\" -- npm run scss"
