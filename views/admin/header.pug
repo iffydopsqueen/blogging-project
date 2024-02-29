@@ -9,16 +9,11 @@ header.header
       li
         a(href='/contact') Contact
   span.header__btn  
-    script.
-      function signIn(isSignInPage) 
-        if (!isSignInPage)
-          button.dashboardBtn(onclick="window.location.href='/dashboard'")
-            svg(xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewbox='0 0 24 24' fill='none' stroke='#000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round')
-              line(x1='18' y1='20' x2='18' y2='10')
-              line(x1='12' y1='20' x2='12' y2='4')
-              line(x1='6' y1='20' x2='6' y2='14')
-          button.logoutBtn(onclick="window.location.href='/logout'") 
-            svg(xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewbox='0 0 24 24' fill='none' stroke='#000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round')
-              path(d='M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9')
-        else 
-          isSignInPage = true
+    button.dashboardBtn(onclick="window.location.href='/dashboard'")
+      svg(xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewbox='0 0 24 24' fill='none' stroke='#000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round')
+        line(x1='18' y1='20' x2='18' y2='10')
+        line(x1='12' y1='20' x2='12' y2='4')
+        line(x1='6' y1='20' x2='6' y2='14')
+    button.logoutBtn(onclick="window.location.href='/logout'") 
+      svg(xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewbox='0 0 24 24' fill='none' stroke='#000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round')
+        path(d='M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9')

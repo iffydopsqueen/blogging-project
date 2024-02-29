@@ -1,12 +1,7 @@
 extends layout
 
 block content
-    
-    //- Set isRegisterPage to true to disable the dashboardBtn and logoutBtn buttons in the header
-    //- var isRegisterPage = true
-
-    //- Pass isRegisterPage variable to the header template
-    //- include ./header.pug
+    - const currentPage = 'register'
     
     h2 Register
 
@@ -27,4 +22,4 @@ block content
 
         p.register-page
         | Already have an account? 
-        a(href="/admin") Sign in
+        a(href="/admin") Log in

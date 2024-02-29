@@ -1,13 +1,9 @@
 extends layout
 
 block content
-
-    script.
-        var isSignInPage = true
-        signIn(isSignInPage)
-        
-
-    h2 Sign In
+    - const currentPage = 'login'
+    
+    h2 Log In
 
     form(action="/admin", method="POST")
         label(for="username")
