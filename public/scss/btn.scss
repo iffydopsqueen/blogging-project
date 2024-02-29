@@ -1,0 +1,88 @@
+@import "colors.scss";
+@import "variables.scss";
+
+.btn {
+    border-radius: $border-radius;
+    background-color: $black;
+    border: none;
+    color: $white; 
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px; 
+    cursor: pointer;
+}
+
+.btn-login,
+.btn-register {
+    /* Increased width of login button */
+    width: 50%;
+    /* Centered horizontally */
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: $border-radius;
+    background-color: $black;
+    border: none;
+    color: $white; 
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: $font-size-base;
+    font-weight: bold;
+}
+
+.btn-publish,
+.btn-update {
+    /* Centered horizontally */
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: $border-radius;
+    background-color: $black;
+    border: none;
+    color: $white; 
+    padding: 14px 28px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: $font-size-base;
+}
+
+.btn-delete {
+    padding: 10px 16px;
+    background-color: $red;
+}
+
+/* SVG Icons */
+
+.loginBtn {
+    &:hover {
+        &::after {
+            content: "Login";
+        }
+    }
+}
+
+.searchBtn {
+    &:hover {
+        &::after {
+            content: "Search";
+        }
+    }
+}
+
+.logoutBtn {
+    &:hover {
+        &::after {
+            content: "Log Out";
+        }
+    }
+}
+
+.dashboardBtn {
+    &:hover {
+        &::after {
+            content: "Dashboard";
+        }
+    }
+}

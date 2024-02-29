@@ -50,7 +50,7 @@ h3 {
 }
 
 #main {
-  margin-top: 90px;
+  margin-top: 0;
 }
 
 .img-fluid {
@@ -64,7 +64,7 @@ h3 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-  padding: 40px 0;
+  padding: 0;
   overflow: hidden;
 }
 

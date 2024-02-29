@@ -1,0 +1,84 @@
+@import "colors.scss";
+@import "variables.scss";
+
+/* Main Header */
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "logo button"
+    "menu menu";
+    padding-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 
+      "logo menu button";
+    }
+}
+
+.header__logo {
+    font-family: $logo-font-family;
+    font-weight: bold;
+    font-size: 60px;
+    text-decoration: none;
+    grid-area: logo;
+}
+
+.header__logo {
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.header__btn {
+    display: flex;
+    justify-content: end;
+    grid-area: button;
+
+    button {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+        border: 0;
+        padding: 4px 12px;
+        background: none;
+        border-radius: $border-radius;
+        border: 2px solid transparent;
+        font-size: $font-size-base;
+        font-weight: 600;
+        color: $black;
+        &:hover {
+            border: 2px solid $black;
+        }
+    }
+}
+
+.header__nav {
+    justify-content: center;
+    display: flex;
+    grid-area: menu;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1rem;
+        font-weight: 600;
+        padding: 0;
+
+        a {
+            padding: 10px;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+            &.active {
+                color: $gray;
+            }
+        }
+    }
+}
