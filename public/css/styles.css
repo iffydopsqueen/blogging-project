@@ -80,7 +80,7 @@
     .article__ul:hover li:hover {
       filter: none; }
   .article__ul li {
-    font-size: 24px;
+    font-size: clamp(1rem, calc(0.45vw + 0.8rem), 1.25rem);
     cursor: pointer;
     transition: filter 0.1s; }
     .article__ul li:not(:last-child) {
@@ -274,7 +274,7 @@ img {
   margin: 5px 0 40px 0; }
 
 .pagination {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, calc(0.45vw + 0.8rem), 1.25rem);
   color: #7E7E7E;
   text-decoration: none;
   margin-top: 40px;
