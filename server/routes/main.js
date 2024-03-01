@@ -19,9 +19,9 @@ router.get('', async (req, res) => {
         let page = req.query.page || 1;    // with this, we can do localhost:3000?page=2
 
         const data = await Post.aggregate([ { $sort: { createdAt: -1 } } ])   // let the oldest post be at the top
-        .skip(perPage * page - perPage)   // when on page 2, it should show the next 5 posts but still keeping it to 5 posts per page 
-        .limit(perPage)   // have only 5 posts per page 
-        .exec();
+            .skip(perPage * page - perPage)   // when on page 2, it should show the next 5 posts but still keeping it to 5 posts per page 
+            .limit(perPage)   // have only 5 posts per page 
+            .exec();
 
         // Count how many blog posts we have 
         const count = await Post.countDocuments({});

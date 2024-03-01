@@ -46,10 +46,7 @@ router.get('/admin', async (req, res) => {
 
         // console.log(locals);
 
-        res.render('admin/index', {
-            locals,
-            layout: adminLayout
-        });   
+        res.render('admin/index', locals);   
     } catch (error) {
         console.log(error);
     }
@@ -98,11 +95,9 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
         }
 
         const data = await Post.find();
-        res.render('admin/dashboard', {
-            locals,
-            data,
-            layout: adminLayout
-        });   
+        res.render('admin/dashboard', { 
+            title: "Dashboard", 
+            data });   
     } catch (error) {
         console.log(error);
     }
@@ -123,10 +118,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
         }
 
         const data = await Post.find();
-        res.render('admin/add-post', {
-            locals,
-            layout: adminLayout
-        });   
+        res.render('admin/add-post', locals);   
     } catch (error) {
         console.log(error);
     }
@@ -174,11 +166,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
 
         const data = await Post.findOne({ _id: req.params.id });
 
-        res.render('admin/edit-post', {
-            locals,
-            data,
-            layout: adminLayout
-        });   
+        res.render('admin/edit-post', {locals, data});   
     } catch (error) {
         console.log(error);
     }
@@ -199,7 +187,7 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
             updatedAt: Date.now()
         });
 
-        res.redirect(`/post/${req.params.id}`);  // redirect to the edited post
+        res.redirect(`/admin-post/${req.params.id}`);  // redirect to the edited post
 
     } catch (error) {
         console.log(error);
@@ -218,6 +206,34 @@ router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
         await Post.deleteOne({ _id: req.params.id });
 
         res.redirect('/dashboard');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+/**
+ * GET /
+ * Post :id
+*/
+
+router.get('/admin-post/:id', async (req, res) => {
+    try {
+        let slug = req.params.id;
+
+        const data = await Post.findById({ _id: slug });
+
+        const locals = {
+            // Adding the title & description to the Home page 
+            title: data.title,
+            description: "The Blog created with Express, NodeJS & MongoDB"
+        }
+
+        res.render('admin/admin-post', { 
+            locals, 
+            data,
+            currentRoute: `/post/${slug}` 
+        });
+
     } catch (error) {
         console.log(error);
     }

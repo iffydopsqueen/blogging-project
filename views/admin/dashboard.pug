@@ -14,7 +14,7 @@ block content
                 each post in data
                     li
                         //-a(href=`/post/${post._id}`) post.title + &nearr;
-                        a(href=`/post/${post._id}`)= post.title + ' ↗'
+                        span= post.title
                         .admin__post__controls
                             a.btn(href=`/edit-post/${post._id}`) Edit
                             form(action=`/delete-post/${post._id}?_method=DELETE`, method="POST")

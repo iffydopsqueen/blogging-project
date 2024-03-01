@@ -1,6 +1,7 @@
 //- Determine visibility of dashboardBtn and logoutBtn based on currentPage variable
 script.
-    const currentPage = '#{currentPage}';
+    let currentPage = '';
+    currentPage = '#{currentPage}';
     if (currentPage === 'login' || currentPage === 'register') {
         document.querySelector('.dashboardBtn').style.display = 'none';
         document.querySelector('.logoutBtn').style.display = 'none';
