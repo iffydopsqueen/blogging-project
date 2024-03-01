@@ -39,14 +39,9 @@ const authMiddleware = (req, res, next) => {
 
 router.get('/admin', async (req, res) => {
     try {
-        const locals = {
-            title: "Admin",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
-        // console.log(locals);
-
-        res.render('admin/index', locals);   
+        res.render('admin/index', {
+            title: "Admin"
+        });   
     } catch (error) {
         console.log(error);
     }
@@ -89,15 +84,11 @@ router.post('/admin', async (req, res) => {
 // the 'authMiddleware' is here so everyone doesn't visit this page 
 router.get('/dashboard', authMiddleware, async (req, res) => {
     try {
-        const locals = {
-            title: "Dashboard",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         const data = await Post.find();
         res.render('admin/dashboard', { 
             title: "Dashboard", 
-            data });   
+            data 
+        });   
     } catch (error) {
         console.log(error);
     }
@@ -112,13 +103,10 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
 // the 'authMiddleware' is here so everyone doesn't visit this page 
 router.get('/add-post', authMiddleware, async (req, res) => {
     try {
-        const locals = {
-            title: "Add Post",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         const data = await Post.find();
-        res.render('admin/add-post', locals);   
+        res.render('admin/add-post', {
+            title: "Add Post"
+        });   
     } catch (error) {
         console.log(error);
     }
@@ -159,14 +147,11 @@ router.post('/add-post', authMiddleware, async (req, res) => {
 // the 'authMiddleware' is here so everyone doesn't visit this page 
 router.get('/edit-post/:id', authMiddleware, async (req, res) => {
     try {
-        const locals = {
-            title: "Edit Post",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         const data = await Post.findOne({ _id: req.params.id });
-
-        res.render('admin/edit-post', {locals, data});   
+        res.render('admin/edit-post', {
+            title: "Edit Post", 
+            data
+        });   
     } catch (error) {
         console.log(error);
     }
@@ -229,7 +214,7 @@ router.get('/admin-post/:id', async (req, res) => {
         }
 
         res.render('admin/admin-post', { 
-            locals, 
+            title: data.title, 
             data,
             currentRoute: `/post/${slug}` 
         });
@@ -248,14 +233,8 @@ router.get('/admin-post/:id', async (req, res) => {
 // Define route for rendering the registration form
 router.get('/register', async (req, res) => {
     try {
-        const locals = {
-            title: "Register",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         res.render('admin/register', {
-            locals,
-            layout: adminLayout
+            title: "Register"
         });
     } catch (error) {
         console.log(error);

@@ -9,12 +9,6 @@ const Post = require('../models/Post');
 
 router.get('', async (req, res) => {
     try {
-        const locals = {
-            // Adding the title & description to the Home page 
-            title: "My Blogging Project",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         let perPage = 5;    // display 5 posts per page
         let page = req.query.page || 1;    // with this, we can do localhost:3000?page=2
 
@@ -29,7 +23,7 @@ router.get('', async (req, res) => {
         const hasNextPage = nextPage <= Math.ceil(count / perPage);
 
         res.render('index', {
-            locals, 
+            title: "Stories", 
             data,
             current: page,
             nextPage: hasNextPage ? nextPage : null,
@@ -68,21 +62,13 @@ router.get('', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         let slug = req.params.id;
-
         const data = await Post.findById({ _id: slug });
 
-        const locals = {
-            // Adding the title & description to the Home page 
-            title: data.title,
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         res.render('post', { 
-            locals, 
+            title: data.title, 
             data,
             currentRoute: `/post/${slug}` 
         });
-
     } catch (error) {
         console.log(error);
     }
@@ -95,12 +81,6 @@ router.get('/post/:id', async (req, res) => {
 
 router.post('/search', async (req, res) => {
     try {
-        const locals = {
-            // Adding the title & description to the Home page 
-            title: "Search",
-            description: "The Blog created with Express, NodeJS & MongoDB"
-        }
-
         let searchTerm = req.body.searchTerm;  // grab the term typed in the search bar 
         const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
 
@@ -112,7 +92,7 @@ router.post('/search', async (req, res) => {
         });
 
         res.render("search", {
-            locals, 
+            title: "Search", 
             data,
             currentRoute: '/'
         });
@@ -129,6 +109,7 @@ router.post('/search', async (req, res) => {
 
 router.get('/about', (req, res) => {
     res.render('about', {
+        title: "About Us",
         currentRoute: '/about'
     });
 });
@@ -140,6 +121,7 @@ router.get('/about', (req, res) => {
 
 router.get('/contact', (req, res) => {
     res.render('contact', {
+        title: "Contact Us",
         currentRoute: '/contact'
     });
 });
