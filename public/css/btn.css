@@ -1,0 +1,61 @@
+/* clamp is used to make the fonts responsive */
+.btn {
+  border-radius: 10px;
+  background-color: #1c1c1c;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer; }
+
+.btn-login,
+.btn-register {
+  /* Increased width of login button */
+  width: 50%;
+  /* Centered horizontally */
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #1c1c1c;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold; }
+
+.btn-publish,
+.btn-update {
+  /* Centered horizontally */
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #1c1c1c;
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem; }
+
+.btn-delete {
+  padding: 12px 10px;
+  background-color: #b30000; }
+
+/* SVG Icons */
+.loginBtn:hover::after {
+  content: "Login"; }
+
+.searchBtn:hover::after {
+  content: "Search"; }
+
+.logoutBtn:hover::after {
+  content: "Log Out"; }
+
+.dashboardBtn:hover::after {
+  content: "Dashboard"; }

@@ -1,0 +1,38 @@
+/* clamp is used to make the fonts responsive */
+/* Home Article List */
+.articles__heading {
+  margin-top: 4rem;
+  font-weight: 400; }
+
+.article__ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  display: flex;
+  flex-direction: column; }
+  .article__ul:hover li {
+    filter: blur(3px); }
+    .article__ul:hover li:hover {
+      filter: none; }
+  .article__ul li {
+    font-size: clamp(1rem, calc(0.45vw + 0.8rem), 1.25rem);
+    cursor: pointer;
+    transition: filter 0.1s; }
+    .article__ul li:not(:last-child) {
+      border-bottom: 1px solid #E4E4E4; }
+    .article__ul li:hover {
+      filter: none; }
+    .article__ul li a {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      margin: 18px 0; }
+
+.article__list__date {
+  font-size: 1rem;
+  color: #7E7E7E;
+  width: 100px;
+  display: inline-block;
+  width: 260px; }

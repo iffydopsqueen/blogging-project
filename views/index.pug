@@ -1,0 +1,56 @@
+extends layout
+
+block content
+
+    head
+        meta(charset='utf-8')
+        meta(content='width=device-width, initial-scale=1.0' name='viewport')
+        title About Us
+        //- Favicons
+        //- <link href="assets/img/favicon.png" rel="icon">    this is for the bootstrap logo REMEMBER to remove
+        
+        //- Template Main CSS Files
+        link(href='css/bootstrap/assets/css/variables.css' rel='stylesheet')
+        link(href='css/bootstrap/assets/css/main.css' rel='stylesheet')
+
+    body 
+        .author
+            h1.author__heading Hi, I am Ify
+            p.author__body DevOps Engineer and Blogger
+
+        img.img-fluid(src='css/bootstrap/assets/img/home-page-landscape.jpg' alt='')
+
+        section.articles
+            h2.articles__heading Latest Posts
+            ul.article__ul
+                if data && data.length > 0
+                    each post in data
+                        li
+                            a(href=`/post/${post._id}`)
+                                span= post.title
+                                span.article__list__date= post.createdAt.toDateString()
+                else
+                    li No posts found
+            if nextPage !== null
+                a(href=`/?page=${nextPage}`, class="pagination") &lt; View Older Posts
+
+
+        //- If I decide to change my posts to display as cards
+        
+        //- section.articles
+        //-     h2.articles__heading Latest Posts
+        //-     .container.posts__container
+        //-         if data && data.length > 0
+        //-             each post in data
+        //-                 article.post
+        //-                     .post__thumbnail
+        //-                         img(src='css/bootstrap/assets/img/person-5.jpg' alt='')
+        //-                     .post__info
+        //-                         a(href=`/post/${post._id}`)
+        //-                             span= post.title
+        //-                             span= post.body
+        //-                             span.article__list__date= post.createdAt.toDateString()
+        //-         else
+        //-             li No posts found
+        //-     if nextPage !== null
+        //-         a(href=`/?page=${nextPage}`, class="pagination") &lt; View Older Posts

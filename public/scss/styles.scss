@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@import "btn.scss";
+@import "posts.scss";
+@import "search.scss";
+@import "colors.scss";
+@import "header.scss";
+@import "variables.scss";
+
+body {
+    font-family: $font-family;
+    color: $black;
+    font-size: $font-size-base;
+    background-color: $bg-color;
+    background-image: url("/img/img-noise-361x370.png");
+    margin: 0;
+}
+
+a { 
+    color: $black; 
+}
+
+h1 { 
+    font-size: $font-size-xl; 
+}
+
+h2 {
+    font-size: $font-size-lg; 
+    text-align: center;
+}
+
+h3 { 
+    font-size: $font-size-md; 
+    text-align: center;
+}
+
+#company-title { 
+    font-size: $font-size-md; 
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    font-family: $font-family;
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: $border-radius;
+}
+  
+/* Make the image responsive */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Center the content in the middle  */
+
+/* Layout */
+.container {
+    max-width: 982px;
+    margin: 0 auto;  /* Left and right is 'auto' so the whole layout is pushed to the middle of the page */
+    padding: 0 25px;   /* when the page shrinks on mobile, the edges won't be touching the sides becuz it has left & right padding of 10px */
+}
+  
+.main {
+    padding: 20px 0;
+}
+
+/* Hero image section */
+.img-fluid {
+    max-height: 528px;
+    filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+    overflow: hidden;
+    border-radius: $border-radius;
+}
+
+@media only screen and (min-width: 768px) {
+    .article__ul {
+        li {
+            a {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+
+    .article__list__date {
+        text-align: right;
+    }
+}
+
+/* Author - HomePage */
+
+.author {
+    padding: 10px 0;
+    text-align: center;
+}
+  
+.author__heading {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+  
+.author__body {
+    font-size: $font-size-md;
+    margin: 5px 0 40px 0;
+}
+
+.pagination {
+    font-size: $font-size-sm;
+    color: $gray;
+    text-decoration: none;
+    margin-top: 40px;
+    display: inline-block;
+
+    &:hover {
+        color: $black;
+    }
+}
+
+.article {
+    white-space: pre-wrap;
+}
+
+/* Footer */
+.footer {
+    margin: 4rem;
+    text-align: center;
+}
+
+.posts__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Dashboard Admin */
+
+.admin__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.admin__posts {
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+}
+
+.admin__post__controls {
+    form {
+        display: inline-block;
+    }
+
+    &.btn {
+        display: inline-block;
+        background-color: $black;
+        color: $gray-light;
+        border: 0;
+        text-decoration: none;
+        font-size: .8rem;
+        padding: 4px 8px;
+        line-height: 2;
+    }
+}

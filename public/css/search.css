@@ -1,0 +1,23 @@
+/* clamp is used to make the fonts responsive */
+.searchBar {
+  visibility: hidden;
+  transform: translateY(-100px);
+  background-color: #1c1c1c;
+  padding: 4px 0;
+  position: absolute;
+  left: 0;
+  right: 0; }
+  .searchBar.open {
+    transform: translateY(0);
+    transition: transform 0.1s; }
+  .searchBar input {
+    margin: 0;
+    border: 0; }
+
+#searchClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #E4E4E4;
+  padding: 15px;
+  cursor: pointer; }
