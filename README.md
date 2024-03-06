@@ -45,7 +45,7 @@ To run the project locally, follow these steps:
 
 - Access the application in your web browser
   ```bash
-  Go to https://localhost:3000
+  https://localhost:3000
   ```
 
 # Extras
